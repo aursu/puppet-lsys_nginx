@@ -1,0 +1,48 @@
+{
+  "name": "aursu-lsys_nginx",
+  "version": "0.46.0",
+  "author": "aursu",
+  "summary": "Nginx basic setup",
+  "license": "Apache-2.0",
+  "source": "https://github.com/aursu/puppet-lsys_nginx.git",
+  "project_page": "https://github.com/aursu/puppet-lsys_nginx",
+  "issues_url": "https://github.com/aursu/puppet-lsys_nginx/issues",
+  "dependencies": [
+
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "OracleLinux",
+      "operatingsystemrelease": [
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "8"
+      ]
+    },
+    {
+      "operatingsystem": "Scientific",
+      "operatingsystemrelease": [
+        "7"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 7.24 < 9.0.0"
+    }
+  ],
+  "pdk-version": "3.0.0",
+  "template-url": "pdk-default#3.0.0",
+  "template-ref": "tags/3.0.0-0-g056e50d"
+}
