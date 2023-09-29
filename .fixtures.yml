@@ -3,6 +3,9 @@
 ---
 fixtures:
   forge_modules:
+    apt:
+      repo: puppetlabs/apt
+      ref: 9.1.0
     bsys:
       repo: aursu/bsys
       ref: 0.4.0

@@ -1,6 +1,6 @@
 {
   "name": "aursu-lsys_nginx",
-  "version": "0.46.0",
+  "version": "0.47.0",
   "author": "aursu",
   "summary": "Nginx basic setup",
   "license": "Apache-2.0",
@@ -29,21 +29,16 @@
       ]
     },
     {
-      "operatingsystem": "OracleLinux",
-      "operatingsystemrelease": [
-        "7"
-      ]
-    },
-    {
-      "operatingsystem": "RedHat",
+      "operatingsystem": "Rocky",
       "operatingsystemrelease": [
         "8"
       ]
     },
     {
-      "operatingsystem": "Scientific",
+      "operatingsystem": "Ubuntu",
       "operatingsystemrelease": [
-        "7"
+        "20.04",
+        "22.04"
       ]
     }
   ],
