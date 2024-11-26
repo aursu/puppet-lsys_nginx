@@ -40,12 +40,12 @@ class lsys_nginx::params {
     'Debian': {
       $oscode = $bsys::params::oscode
 
-      $version = "1.25.2-1~${oscode}"
+      $version = "1.27.2-1~${oscode}"
     }
     'RedHat': {
       $version = $osmaj ? {
         '6'     => '1.19.5-1.el6.ngx',
-        default => "1.25.2-1.el${osmaj}.ngx",
+        default => "1.27.0-2.el${osmaj}.ngx",
       }
     }
     default: {

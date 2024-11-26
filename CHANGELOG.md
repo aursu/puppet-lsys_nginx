@@ -12,11 +12,12 @@ All notable changes to this project will be documented in this file.
 
 **Known Issues**
 
-## Release 0.47.0
+## Release 0.48.0
 
 **Features**
 
 * Changed operating systems supported
+* Dependencies update
 
 **Bugfixes**
 
