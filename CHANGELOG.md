@@ -12,12 +12,13 @@ All notable changes to this project will be documented in this file.
 
 **Known Issues**
 
-## Release 0.48.0
+## Release 0.48.1
 
 **Features**
 
 * Changed operating systems supported
 * Dependencies update
+* Default nginx version for Ubuntu updated to 1.27.3
 
 **Bugfixes**
 

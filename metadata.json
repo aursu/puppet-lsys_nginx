@@ -1,6 +1,6 @@
 {
   "name": "aursu-lsys_nginx",
-  "version": "0.48.0",
+  "version": "0.48.1",
   "author": "aursu",
   "summary": "Nginx basic setup",
   "license": "Apache-2.0",
