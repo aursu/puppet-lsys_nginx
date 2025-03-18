@@ -23,3 +23,13 @@ All notable changes to this project will be documented in this file.
 **Bugfixes**
 
 **Known Issues**
+
+## Release 0.48.2
+
+**Features**
+
+* Default nginx version for Ubuntu updated to 1.27.4
+
+**Bugfixes**
+
+**Known Issues**
