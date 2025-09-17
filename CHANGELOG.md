@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## Release 0.48.3
+
+**Features**
+
+* Test over nginx module v7.0.2
+
+**Bugfixes**
+
+**Known Issues**
+
 ## Release 0.46.0
 
 **Features**

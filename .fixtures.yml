@@ -11,7 +11,7 @@ fixtures:
       ref: 0.10.0
     nginx:
       repo: aursu/nginx
-      ref: 6.0.2
+      ref: 7.0.2
     stdlib:
       repo: puppetlabs/stdlib
       ref: 9.6.0
