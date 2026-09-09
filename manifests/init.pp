@@ -66,6 +66,10 @@ class lsys_nginx (
   Boolean $manage_user = true,
   Boolean $manage_user_home = false,
   String $package_ensure                    = $lsys_nginx::params::version,
+  Boolean $njs                              = false,
+  String[1] $njs_package_ensure             = 'installed',
+  Array[String[1]] $njs_modules             = ['ngx_stream_js_module'],
+  Boolean $stream                           = false,
   String  $daemon_user                      = $bsys::webserver::params::user,
   Integer $daemon_user_id                   = $bsys::webserver::params::user_id,
   String  $daemon_group                     = $bsys::webserver::params::group,
@@ -191,6 +195,24 @@ class lsys_nginx (
     }
   }
 
+  # njs is a dynamic module: the .so has to exist before nginx.conf names it in
+  # a load_module directive, or nginx will not start - and on a host where this
+  # nginx also fronts other services that is an outage, not a degraded feature.
+  # The ordering edge below is therefore load-bearing, not tidiness.
+  if $njs {
+    class { 'lsys_nginx::njs':
+      package_ensure => $njs_package_ensure,
+    }
+
+    $dynamic_modules = $njs_modules
+
+    Class['lsys_nginx::njs'] -> Class['nginx::config']
+    Class['lsys_nginx::njs'] -> Class['nginx::service']
+  }
+  else {
+    $dynamic_modules = []
+  }
+
   class { 'nginx':
     charset                  => $charset,
     charset_types            => $charset_types,
@@ -203,6 +225,7 @@ class lsys_nginx (
     daemon_group             => $daemon_group,
     daemon_user              => $daemon_user,
     default_type             => $default_type,
+    dynamic_modules          => $dynamic_modules,
     etag                     => $etag,
     events_use               => $events_use,
     fastcgi_buffer_size      => $fastcgi_buffer_size,
@@ -249,6 +272,7 @@ class lsys_nginx (
     server_tokens            => false,
     service_manage           => true,
     service_name             => $service_name,
+    stream                   => $stream,
     # http://nginx.org/en/docs/http/ngx_http_core_module.html#types_hash_max_size
     # http://nginx.org/en/docs/hash.html
     types_hash_max_size      => $types_hash_max_size,
