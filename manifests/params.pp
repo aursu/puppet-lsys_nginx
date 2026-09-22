@@ -40,13 +40,19 @@ class lsys_nginx::params {
     'Debian': {
       $oscode = $bsys::params::oscode
 
-      $version = "1.27.4-1~${oscode}"
+      # nginx.org stopped building mainline for focal after 1.27.5; newer
+      # codenames track current mainline. A flat default would pin focal to a
+      # version that does not exist in its suite.
+      $version = $oscode ? {
+        'focal' => "1.27.5-1~${oscode}",
+        default => "1.31.6-1~${oscode}",
+      }
     }
     'RedHat': {
       $version = $osmaj ? {
         '6'     => '1.19.5-1.el6.ngx',
         '7'     => '1.27.0-2.el7.ngx',
-        default => "1.27.4-1.el${osmaj}.ngx",
+        default => "1.31.6-1.el${osmaj}.ngx",
       }
     }
     default: {
