@@ -45,14 +45,14 @@ class lsys_nginx::params {
       # version that does not exist in its suite.
       $version = $oscode ? {
         'focal' => "1.27.5-1~${oscode}",
-        default => "1.31.6-1~${oscode}",
+        default => "1.31.9-1~${oscode}",
       }
     }
     'RedHat': {
       $version = $osmaj ? {
         '6'     => '1.19.5-1.el6.ngx',
         '7'     => '1.27.0-2.el7.ngx',
-        default => "1.31.6-1.el${osmaj}.ngx",
+        default => "1.31.9-1.el${osmaj}.ngx",
       }
     }
     default: {
