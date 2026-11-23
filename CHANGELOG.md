@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## Release 0.50.1
+
+**Bugfixes**
+
+* **Default nginx version moves to mainline `1.31.9`** on Debian/Ubuntu (jammy, noble) and EL8+, from `1.31.6`. Verified against nginx.org on 2026-11-23. focal stays capped at `1.27.5-1~focal`.
+
+**Notes**
+
+* This is a security fix. `1.31.9` (2026-11-18) fixes ten advisories that affect every release up to and including `1.31.8`, among them memory corruption in HTTP/2 flow control (CVE-2026-123007), use-after-free in the mail proxy (CVE-2026-113425), an infinite loop reading a request body over TLS 1.3 (CVE-2026-118899) and an SNI bypass of client certificate validation in stream (CVE-2026-120967). `1.31.7` had already fixed five more (CVE-2026-15176, CVE-2026-93479, CVE-2026-95101, CVE-2026-97629, CVE-2026-97205).
+* Hosts that pin `package_ensure` are unaffected; move the pin to `1.31.9-1~<codename>` in the same change.
+* A host with `njs => true` must move `njs_package_ensure` in step with nginx.
+
 ## Release 0.50.0
 
 **Features**
